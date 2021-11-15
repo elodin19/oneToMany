@@ -1,6 +1,8 @@
 package com.postgreesql.oneToMany.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "bancos")
@@ -13,12 +15,23 @@ public class Banco {
     @Column
     private String name;
 
+    @OneToMany(mappedBy = "banco")
+    private Set<Cuenta> cuentas = new HashSet<>();
+
     public Banco() {
     }
 
     public Banco(Long id, String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public void addCuenta(Cuenta cuenta){
+        cuentas.add(cuenta);
+    }
+
+    public Set<Cuenta> getCuentas(){
+        return cuentas;
     }
 
     public Long getId() {

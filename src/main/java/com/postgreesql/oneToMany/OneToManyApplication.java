@@ -26,10 +26,20 @@ public class OneToManyApplication {
 		bancoRepository.save(banco1);
 		bancoRepository.save(banco2);
 
-		Cuenta cuenta11 = new Cuenta(null, "Daniel JA", banco1);
-		Cuenta cuenta12 = new Cuenta(null, "Pedro JA", banco1);
-		Cuenta cuenta21 = new Cuenta(null, "Juan JA", banco2);
-		Cuenta cuenta22 = new Cuenta(null, "Sara JA", banco2);
+		Cuenta cuenta11 = new Cuenta(null, "Daniel JA");
+		Cuenta cuenta12 = new Cuenta(null, "Pedro JA");
+		Cuenta cuenta21 = new Cuenta(null, "Juan JA");
+		Cuenta cuenta22 = new Cuenta(null, "Sara JA");
+
+		cuenta11.setBanco(banco1);
+		cuenta12.setBanco(banco1);
+		cuenta21.setBanco(banco2);
+		cuenta22.setBanco(banco2);
+
+		banco1.addCuenta(cuenta11);
+		banco1.addCuenta(cuenta12);
+		banco2.addCuenta(cuenta21);
+		banco2.addCuenta(cuenta22);
 
 		cuentaRepository.save(cuenta11);
 		cuentaRepository.save(cuenta12);
@@ -40,6 +50,9 @@ public class OneToManyApplication {
 		System.out.println("Cuenta12: " + cuenta12.toString());
 		System.out.println("Cuenta21: " + cuenta21.toString());
 		System.out.println("Cuenta22: " + cuenta22.toString());
+
+		System.out.println(banco1.getCuentas());
+		System.out.println(banco2.getCuentas());
 	}
 
 }

@@ -19,10 +19,9 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(Long id, String fullname, Banco banco) {
+    public Cuenta(Long id, String fullname) {
         this.id = id;
         this.fullname = fullname;
-        this.banco = banco;
     }
 
     public Banco getBanco(){
