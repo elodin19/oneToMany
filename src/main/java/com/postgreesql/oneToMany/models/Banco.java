@@ -1,8 +1,6 @@
 package com.postgreesql.oneToMany.models;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "bancos")
@@ -38,5 +36,5 @@ public class Banco {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }
